@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Outrun Racer — pseudo-3D arcade racing</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<div id="ui">
+  <!-- top bar -->
+  <div id="topbar">
+    <span class="hint">M mute &middot; P pause</span>
+    <button id="mute" title="Mute (M)">&#x1F50A;</button>
+  </div>
+
+  <!-- HUD -->
+  <div id="hud" class="hidden">
+    <div class="hud-left">
+      <div id="hud-speed">0</div>
+      <div class="unit">km/h</div>
+    </div>
+    <div class="hud-right">
+      <div id="hud-pos">P6</div>
+      <div id="hud-lap">LAP 1/3</div>
+    </div>
+    <div class="hud-times">
+      <div>LAP&nbsp;&nbsp;<span id="t-lap">--:--.---</span></div>
+      <div>LAST&nbsp;<span id="t-last">--:--.---</span></div>
+      <div>BEST&nbsp;<span id="t-best">--:--.---</span></div>
+    </div>
+  </div>
+
+  <!-- centre banner (LAP 2 / FINAL LAP / GO!) -->
+  <div id="banner"></div>
+
+  <!-- countdown -->
+  <div id="countdown" class="hidden">3</div>
+
+  <!-- main menu -->
+  <div id="menu" class="panel">
+    <h1>OUTRUN<span> RACER</span></h1>
+    <p class="tag">Pseudo-3D arcade racing. Three circuits, five rivals, twelve traffic cars. No brakes on nostalgia.</p>
+    <div id="tracks"></div>
+    <div class="help">
+      <span><b>&#8593;/W</b> gas</span>
+      <span><b>&#8595;/S</b> brake</span>
+      <span><b>&#8592;&#8594;/AD</b> steer</span>
+      <span><b>P</b> pause</span>
+      <span><b>M</b> mute</span>
+      <span><b>1&ndash;3</b> quick start</span>
+    </div>
+  </div>
+
+  <!-- race results -->
+  <div id="finish" class="panel hidden">
+    <h2 id="fin-title">VICTORY!</h2>
+    <div id="fin-pos" class="fin-pos">P1 of 6</div>
+    <div class="fin-stats">
+      <div><span>Race time</span><b id="fin-time">--:--.---</b></div>
+      <div><span>Last lap</span><b id="fin-last">--:--.---</b></div>
+      <div><span>Best lap</span><b id="fin-best">--:--.---</b></div>
+    </div>
+    <div class="fin-btns">
+      <button id="btn-again" class="btn">Race again</button>
+      <button id="btn-tracks" class="btn ghost">Change track</button>
+    </div>
+  </div>
+
+  <!-- paused -->
+  <div id="paused" class="panel hidden">
+    <h2>PAUSED</h2>
+    <p class="tag">Press P or Esc to resume</p>
+  </div>
+
+  <!-- touch controls (shown on touch devices only) -->
+  <div id="touch" class="hidden">
+    <div class="t-cluster left">
+      <button id="t-left" class="tbtn">&#9664;</button>
+      <button id="t-right" class="tbtn">&#9654;</button>
+    </div>
+    <div class="t-cluster right">
+      <button id="t-brake" class="tbtn brake">BRAKE</button>
+      <button id="t-gas" class="tbtn gas">GAS</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/util.js"></script>
+<script src="js/sprites.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/tracks.js"></script>
+<script src="js/render.js"></script>
+<script src="js/game.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
